@@ -10,17 +10,7 @@ repos:
     rev: 1.7.5
     hooks:
       - id: bandit
-        args:
-          [
-            "--skip",
-            "B311",
-            "--skip",
-            "B106",
-            "--exclude",
-            "api/tests/test_api",
-            "--exclude",
-            "src/events/tests",
-          ]
+        args: ["--skip", "B311", "--skip", "B106", "--skip", "B113"]
   - repo: https://github.com/psf/black
     rev: 23.1.0
     hooks:

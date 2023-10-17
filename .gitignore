@@ -47,3 +47,5 @@ myproject/database.conf
 .DS_Store
 Thumbs.db
 ehthumbs.db
+
+.mypy_cache

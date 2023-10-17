@@ -37,11 +37,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_extensions",
+    "rest_framework",
 ]
 
-INSTALLED_EXTENSIONS = ["data_processing"]
+INSTALLED_EXTENSIONS = ["data_processing", "api"]
 
 INSTALLED_APPS += INSTALLED_EXTENSIONS
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

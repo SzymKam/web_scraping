@@ -6,3 +6,6 @@ class WordCount(models.Model):
     word = models.CharField(max_length=255)
     count = models.PositiveIntegerField()
     author = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return f"article: {self.article}" f"word: {self.word}"

@@ -31,6 +31,7 @@ def save_words_to_db(article, urls_with_author):
     word_frequency = Counter(filtered_words)
 
     author = urls_with_author.get(article)
+    author_lowercase = author.replace(" ", "").lower()
 
     for word, count in word_frequency.items():
         try:
@@ -38,10 +39,13 @@ def save_words_to_db(article, urls_with_author):
             if existing_article:
                 existing_article.count = count
                 existing_article.author = author
+                existing_article.author_lowercase = author_lowercase
                 existing_article.save()
                 print(f"{existing_article} updated!")
 
         except Http404:
-            new_article = WordCount.objects.create(article=article, word=word, count=count, author=author)
+            new_article = WordCount.objects.create(
+                article=article, word=word, count=count, author=author, author_lowercase=author_lowercase
+            )
             new_article.save()
             print(f"{new_article} created")

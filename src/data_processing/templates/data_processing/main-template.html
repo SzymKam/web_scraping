@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Main page</title>
+  </head>
+  <body>
+    <h3>All pages list</h3>
+    <menu>
+      <li><a href="{% url 'top-10-words' %}">Top 10 words by all</a></li>
+      <li><a href="{% url 'author-list' %}">Author list</a></li>
+
+      <h4>Top words by author</h4>
+
+      {% for author in authors %}
+      <li>
+        <a
+          href="{% url 'word-counts-by-author' author=author.author_lowercase %}"
+          >{{author.author}}</a
+        >
+      </li>
+      {% endfor %}
+    </menu>
+    <h4><a href="{% url 'initial-view' %}">Refresh database</a></h4>
+  </body>
+</html>

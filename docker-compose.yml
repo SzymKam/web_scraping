@@ -1,0 +1,38 @@
+version: "3"
+services:
+  db:
+    container_name: db_web_scraping
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: db_web_scraping
+      POSTGRES_USER: db_web_scraping
+      POSTGRES_PASSWORD: db_web_scraping
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - network_no_internet
+
+  web:
+    container_name: web_web_scraping
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src:/src
+    depends_on:
+      - db
+    networks:
+      - network_no_internet
+      - network_internet
+
+volumes:
+  pg_data:
+
+networks:
+  network_internet:
+    driver: bridge
+  network_no_internet:
+    driver: bridge
+    internal: true

@@ -9,13 +9,9 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-import os
+
 from pathlib import Path
 
-import environ
-from django.core.management.utils import get_random_secret_key
-
-from .default_variables import *
 from .default_variables import env
 
 env.read_env(".env")

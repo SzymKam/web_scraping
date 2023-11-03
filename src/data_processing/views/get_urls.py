@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -6,7 +8,7 @@ def return_urls(base_url: str) -> dict:
     articles_check = []
     articles_and_authors = {}
     response = requests.get(base_url)
-    if response.status_code == 200:
+    if response.status_code == HTTPStatus.OK:
         soup = BeautifulSoup(response.text, "html.parser")
 
     article_links = soup.find_all("article", class_="post-card")

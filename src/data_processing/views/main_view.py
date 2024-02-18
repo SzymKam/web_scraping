@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse, get_object_or_404, redirect, render
+from django.shortcuts import HttpResponse, redirect, render
 from django.views.generic import View
 
 from ..constans import URL_TO_GET_ARTICLES

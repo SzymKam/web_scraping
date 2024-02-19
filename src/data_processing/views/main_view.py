@@ -1,7 +1,7 @@
 from django.shortcuts import HttpResponse, redirect, render
 from django.views.generic import View
 
-from ..constans import URL_TO_GET_ARTICLES
+from ..constants import URL_TO_GET_ARTICLES
 from ..models import WordCount
 from .get_urls import return_urls
 from .get_words import save_words_to_db

@@ -8,7 +8,7 @@ from django.http.response import Http404
 from django.shortcuts import get_object_or_404
 from nltk.corpus import stopwords
 
-from ..constans import BASE_URL
+from ..constants import BASE_URL
 from ..models import WordCount
 
 
